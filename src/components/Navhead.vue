@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<div class="nav" v-on:mouseover="stop()" v-on:mouseout="move()">
+		<div class="nav" >
 			<img src="../assets/img/微信图片_20181130152241.png" alt="logo">
 			<ul class="nav_ul">
 			<router-link tag='li' :to='item.ref' v-for='(item,index) in items' :key='index' :class="{menu:item.routeName==$route.name}">
@@ -9,7 +9,7 @@
 		</ul>
 		</div>
 		
-		<div class="Carousel">
+		<div class="Carousel" v-on:mouseover="stop()" v-on:mouseout="move()">
 			<transition-group class="nav_img" tag='ul' name="bounce">
 				<router-link v-show="indexs==mark" tag='li' to='' v-for='(img,indexs) in plays' :key='indexs' :class="{mainimg:img.names==$route.name}">
 					<img :src='img.url' alt="主页图片"/>
@@ -65,11 +65,7 @@
 					{
 						names:'第三张',
 						url:require('../assets/img/ban3.jpg'),
-					},
-					{
-						names:'第一张',
-						url:require('../assets/img/ban1.jpg'),
-					},
+					}
 				]
 			}
 		},
@@ -100,10 +96,6 @@
 </script>
 
 <style>
-	html{
-		margin: 0px;
-		padding: 0px;
-	}
 	.nav{
 		width: 1226px;
 		margin: 0 auto;
@@ -129,7 +121,7 @@
 		cursor: pointer;
 	}
 	.Carousel{
-		height: 212px;
+		height: 320px;
 		margin: 0px;
 		padding: 0px;
 		overflow: hidden;
@@ -140,17 +132,17 @@
 		display:flex;
 		clear: both;
 		list-style: none;
-		width: 400%;
+		width: 300%;
 		padding: 0px;
 	}
 	.nav_img img{
-		height: 212px;
+		height:320px;
 		width: 100%;
 	}
 	.bar{
 		position: absolute;
 		left: 650px;
-		top: 280px;
+		top: 370px;
 		cursor: pointer;
 	}
 	.bar span{
@@ -170,11 +162,11 @@
 	}
 	.bounce-enter-acitve{
 		transform: translateX(0);
-   		 transition: all 1.5s ease;
+   		 transition: all 1s ease;
 	}
 	.bounce-leave-active{
 		transform: translateX(-100%);
-   		 transition: all 1.5s ease;
+   		 transition: all 1s ease;
 	}
 	.bounce-enter {
    	 	transform: translateX(100%);
@@ -182,4 +174,15 @@
   	.bounce-leave {
    	 transform: translateX(0);
   	}
+  	@keyframes bounce-in {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 </style>
