@@ -93,6 +93,7 @@
 	}
 	.about_ul li {
 		line-height: 30px;
+		list-style: none;
 	}
 	.about_ul h3{
 		margin: 20px 0px;
@@ -102,6 +103,7 @@
 	}
 	.about_price{
 		display: flex;
+		list-style: none;
 	}
 	.price{
 		margin: 20px 0px;

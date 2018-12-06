@@ -3,24 +3,22 @@
 		<div class="nav" >
 			<img src="../assets/img/微信图片_20181130152241.png" alt="logo">
 			<ul class="nav_ul">
-			<li :to='item.ref' v-for='(item,index1) in items' :key='index1' :class="{'nav_active':index1 == isActive}" @click="changecolor(index1)">
+			<router-link tag='li' :to='item.ref' v-for='(item,index1) in items' :key='index1' :class="{'is-active':item.routename==$route.name}" >
 				{{item.routename}}
-			</li>
+			</router-link>
 		</ul>
 		</div>
-        <div>
-			<div class="Carousel" v-on:mouseover="stop()" v-on:mouseout="move()">
-			<transition-group name="bounce" class="nav_img" tag='ul' >
-                <li  v-for='(img,indexs) in plays' :key='indexs'  v-show="indexs==mark" >
-					<img :src='img.url' alt="主页图片"/>
-				</li>
-			</transition-group>
-		</div>
-			
-		
-		<div class="bar" v-on:mouseover="stop()" v-on:mouseout="move()">
-			<span v-for="(bar,index) in plays" :class="{'active':index==mark}" :key="index" @click="change(index)" ></span>
-		</div>
+        <div class="roll" v-on:mouseover="stop()" v-on:mouseout="move()">
+			<div class="Carousel" >
+				<transition-group name="bounce" class="nav_img" tag='ul' >
+               		 <li  v-for='(img,indexs) in plays' :key='indexs'  v-show="indexs==mark" >
+						<img :src='img.url' alt="主页图片"/>
+					</li>
+				</transition-group>
+			</div>
+			<div class="bar">
+				<span v-for="(bar,index) in plays" :class="{'active':index==mark}" :key="index" @click="change(index)" ></span>
+			</div>
 		</div>
 		
 	</div>
@@ -30,7 +28,7 @@
 	export default{
 		data(){
 			return {
-				isActive:0,
+				
 				timer:null,
 				mark:0,
 				show:true,
@@ -73,9 +71,6 @@
 			}
 		},
 		methods:{
-			changecolor(index){
-					this.isActive = index;			
-			},
 			autoPlay(){
 				this.mark++;
 				if(this.mark == 3){
@@ -126,15 +121,17 @@
 	.nav_ul li{
 		margin-right:20px ;
 		cursor: pointer;
+		position: relative;
+		top: 0px;
+		left: 0px;
 	}
-	.Carousel{
-		height: 320px;
-		padding: 0px;
+	.roll{
 		overflow: hidden;
 		width:100%;
-	
 	}
+	
 	.nav_img{
+		
 		display:flex;
 		clear: both;
 		list-style: none;
@@ -147,7 +144,7 @@
 		}
 	.bar{
 		position: absolute;
-		left: 50%;
+		left: 45%;
 		top: 370px;
 		cursor: pointer;
 	}
@@ -163,28 +160,15 @@
 		background: #686761;
 		margin:0px 10px ;
 	}
-	.nav_ul route-link{
+	.nav_ul li{
 		margin: 0px 20px;
 		cursor: pointer;
 	}
-	.nav_active{
+	.is-active{
 		border-bottom: 2px solid #00C721;
 	}
 	.active{
 		background: #00C721 !important;
 	}
-	.bounce-enter-acitve{
-		transform: translateX(0);
-   		 transition: all 1s ease;
-	}
-	.bounce-leave-active{
-		transform: translateX(-100%);
-   		 transition: all 1s ease;
-	}
-	.bounce-enter {
-   	 	transform: translateX(100%);
-  	}
-  	.bounce-leave {
-   	 transform: translateX(0);
-  	}
+	
 </style>
