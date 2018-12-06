@@ -3,24 +3,26 @@
 		<div class="nav" >
 			<img src="../assets/img/微信图片_20181130152241.png" alt="logo">
 			<ul class="nav_ul">
-			<router-link tag='li' :to='item.ref' v-for='(item,index) in items' :key='index' :class="{menu:item.routeName==$route.name}">
-				{{item.routname}}
-			</router-link>
+			<li :to='item.ref' v-for='(item,index1) in items' :key='index1' :class="{'nav_active':index1 == isActive}" @click="changecolor(index1)">
+				{{item.routename}}
+			</li>
 		</ul>
 		</div>
-		
-		<div class="Carousel" v-on:mouseover="stop()" v-on:mouseout="move()">
-			<transition-group class="nav_img" tag='ul' name="bounce">
-				<router-link v-show="indexs==mark" tag='li' to='' v-for='(img,indexs) in plays' :key='indexs' :class="{mainimg:img.names==$route.name}">
+        <div>
+			<div class="Carousel" v-on:mouseover="stop()" v-on:mouseout="move()">
+			<transition-group name="bounce" class="nav_img" tag='ul' >
+                <li  v-for='(img,indexs) in plays' :key='indexs'  v-show="indexs==mark" >
 					<img :src='img.url' alt="主页图片"/>
-				</router-link>
+				</li>
 			</transition-group>
 		</div>
 			
 		
-		<div class="bar">
+		<div class="bar" v-on:mouseover="stop()" v-on:mouseout="move()">
 			<span v-for="(bar,index) in plays" :class="{'active':index==mark}" :key="index" @click="change(index)" ></span>
 		</div>
+		</div>
+		
 	</div>
 </template>
 
@@ -28,29 +30,30 @@
 	export default{
 		data(){
 			return {
+				isActive:0,
 				timer:null,
 				mark:0,
 				show:true,
 				items:[
 					{
 						ref:'/',
-						name:'首页',
-						routname:'首页',
+						
+						routename:'首页',
 					},
 					{
 						ref:'/about.html',
-						name:'关于我们',
-						routname:'关于我们',
+						
+						routename:'关于我们',
 					},
 					{
 						ref:'/contact.html',
-						name:'联系我们',
-						routname:'联系我们',
+					
+						routename:'联系我们',
 					},
 					{
 						ref:'/hr.html',
-						name:'加入我们',
-						routname:'加入我们',
+						
+						routename:'加入我们',
 					},
 				],
 				plays:[
@@ -70,11 +73,15 @@
 			}
 		},
 		methods:{
+			changecolor(index){
+					this.isActive = index;			
+			},
 			autoPlay(){
 				this.mark++;
 				if(this.mark == 3){
 					this.mark = 0;
 				}
+				
 			},
 			play(){
 				this.timer = setInterval(this.autoplay,2500)
@@ -112,7 +119,7 @@
 		list-style: none;
 		display: flex;
 		line-height: 40px;
-		margin-top:30px ;
+		margin:30px 0px 0px 20px;
 		float: left;
 		
 	}
@@ -122,7 +129,6 @@
 	}
 	.Carousel{
 		height: 320px;
-		margin: 0px;
 		padding: 0px;
 		overflow: hidden;
 		width:100%;
@@ -137,11 +143,11 @@
 	}
 	.nav_img img{
 		height:320px;
-		width: 100%;
-	}
+		width: 1226px;
+		}
 	.bar{
 		position: absolute;
-		left: 650px;
+		left: 50%;
 		top: 370px;
 		cursor: pointer;
 	}
@@ -156,6 +162,13 @@
 		border-radius:50% ;
 		background: #686761;
 		margin:0px 10px ;
+	}
+	.nav_ul route-link{
+		margin: 0px 20px;
+		cursor: pointer;
+	}
+	.nav_active{
+		border-bottom: 2px solid #00C721;
 	}
 	.active{
 		background: #00C721 !important;
@@ -174,15 +187,4 @@
   	.bounce-leave {
    	 transform: translateX(0);
   	}
-  	@keyframes bounce-in {
-  0% {
-    transform: scale(0);
-  }
-  50% {
-    transform: scale(1.5);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
 </style>

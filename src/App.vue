@@ -1,20 +1,20 @@
 <template>
   <div id="app">
   	<Navhead></Navhead>
-    <router-view></router-view>
-    <Footer></Footer>
+   <router-view></router-view>
+ 		 <Footer></Footer>
   </div>
 </template>
 
 <script>
 import Navhead from './components/Navhead'
-import Center from './components/Center'
+import About from './components/About'
 import Footer from './components/Footer'
 export default {
-  name: 'App',
+  //name: 'App',
   components:{
   	Navhead,
-  	Center,
+  	About,
   	Footer,
   },
   data(){
@@ -29,6 +29,7 @@ export default {
 *{
 	padding: 0px;
 	margin: 0px;
+
 }
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
@@ -36,5 +37,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  width: 1226px;
+  margin: 0 auto;
 }
 </style>

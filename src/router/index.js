@@ -29,6 +29,9 @@ export default new Router({
       path: '/hr.html',
       name: '加入我们',
       component: resolve=>require(['../components/Add.vue'],resolve)
+    },
+     {
+      path:'*',redirect:'/'
     }
   ]
 })
