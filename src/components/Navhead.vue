@@ -8,11 +8,11 @@
 			</router-link>
 		</ul>
 		</div>
-        <div class="roll" v-on:mouseover="stop()" v-on:mouseout="move()">
-			<div class="Carousel" >
+        <div class="roll hidden-xs" v-on:mouseover="stop()" v-on:mouseout="move()">
+			<div class="Carousel hidden-xs" >
 				<transition-group name="bounce" class="nav_img" tag='ul' >
-               		 <li  v-for='(img,indexs) in plays' :key='indexs'  v-show="indexs==mark" >
-						<img :src='img.url' alt="主页图片"/>
+               		 <li  class="hidden-xs" v-for='(img,indexs) in plays' :key='indexs'  v-show="indexs==mark" >
+						<img :src='img.url' alt="主页图片" class="hidden-xs"/>
 					</li>
 				</transition-group>
 			</div>
@@ -127,7 +127,6 @@
 	}
 	.roll{
 		overflow: hidden;
-		width:100%;
 	}
 	
 	.nav_img{
@@ -140,7 +139,7 @@
 	}
 	.nav_img img{
 		height:320px;
-		width: 1226px;
+		width: 100%;
 		}
 	.bar{
 		position: absolute;

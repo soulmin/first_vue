@@ -161,7 +161,7 @@
 		margin-top: 15px;
 	}
 	.new_img{
-		width: 380px;
+		width: 420px;
 		height: 241px;
 		padding-right:50px;
 	}
@@ -183,20 +183,21 @@
 		text-overflow:ellipsis;
 	}
 	.head_img img{
-		width: 360px;
+		width: 400px;
 		height: 180px;
 	}
 	.home_title h3{
-		font-size: 18px;
-		display: inline-block;
+		
 		float: left;
 	}
 	.home_title{
+		font-size: 18px;
 		overflow: hidden;
 		margin: 10px 0px;
 	}
 	.home_title span{
 		float: right;
+		margin: 20px 0px;
 	}
 	.home_center{
 		overflow: hidden;
@@ -228,7 +229,7 @@
 	}
 	.center_write_01 li{
 		text-align: left;
-		 width: 380px;
+		 width: 410px;
     	height: 241px;
     	padding-right: 50px;
     	margin-left: 45px;
