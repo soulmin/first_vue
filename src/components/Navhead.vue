@@ -12,7 +12,7 @@
 			<div class="Carousel hidden-xs" >
 				<transition-group name="bounce" class="nav_img" tag='ul' >
                		 <li  class="hidden-xs" v-for='(img,indexs) in plays' :key='indexs'  v-show="indexs==mark" >
-						<img :src='img.url' alt="主页图片" class="hidden-xs"/>
+						<img :src='img.url' alt="主页图片" class="hidden-xs" />
 					</li>
 				</transition-group>
 			</div>
@@ -127,6 +127,7 @@
 	}
 	.roll{
 		overflow: hidden;
+		 width: 1280px;
 	}
 	
 	.nav_img{
