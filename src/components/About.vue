@@ -78,9 +78,8 @@
 
 <style>
 	.about{
-		margin-top: 25px;
+		margin-top: 20px;
 		text-align: left;
-		padding: 10px;
 	}
 	.about h2{
 		font-size: 25px;

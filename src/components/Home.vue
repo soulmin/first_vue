@@ -152,7 +152,7 @@
 
 <style>
 	.home{
-		margin: 30px auto;
+		margin: 10px auto;
 		width:1226px;
 	}
 	.head_img{
@@ -193,11 +193,9 @@
 	.home_title{
 		font-size: 18px;
 		overflow: hidden;
-		margin: 10px 0px;
 	}
 	.home_title span{
 		float: right;
-		margin: 20px 0px;
 	}
 	.home_center{
 		overflow: hidden;

@@ -46,6 +46,7 @@
 	}
 	.add h2{
 		margin: 20px 0px;
+		font-size: 25px;
 	}
 	.add_join{
 		font-size: 12px;

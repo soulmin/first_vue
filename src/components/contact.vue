@@ -21,9 +21,8 @@
 
 <style>
 	.contact{
-		margin-top: 25px;
+		margin-top: 20px;
 		text-align: left;
-		padding: 10px;
 	}
 	.contact h2{
 		font-size: 25px;

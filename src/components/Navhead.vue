@@ -136,7 +136,7 @@
 		clear: both;
 		list-style: none;
 		width: 300%;
-		padding: 0px;
+		margin: 0px;
 	}
 	.nav_img img{
 		height:320px;
